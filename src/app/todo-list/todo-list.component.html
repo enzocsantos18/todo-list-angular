@@ -1,0 +1,13 @@
+<form>
+  <label for="tarefa">Tarefa</label><br />
+  <input name="tarefa" id="tarefa" type="text" />
+  <button>adicionar</button>
+</form>
+
+<hr />
+<h2>tarefas</h2>
+
+<div *ngFor="let todo of todos; let i = index" [attr.data-index]="i">
+  <span>{{ todo }}</span> |
+  <button (click)="remover(i)">remover</button>
+</div>
