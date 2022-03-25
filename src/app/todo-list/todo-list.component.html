@@ -9,5 +9,5 @@
 
 <div *ngFor="let todo of todos; let i = index" [attr.data-index]="i">
   <span>{{ todo }}</span> |
-  <button (click)="remover(i)">remover</button>
+  <button (click)="remover(i)">concluida</button>
 </div>
