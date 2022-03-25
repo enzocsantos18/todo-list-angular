@@ -5,7 +5,10 @@
 </form>
 
 <hr />
-<h2>tarefas</h2>
+<h2 *ngIf="todos.length">tarefas</h2>
+
+<span *ngIf="!todos.length">Não existe tarefas criadas, adicione uma nova</span>
+
 
 <div *ngFor="let todo of todos; let i = index" [attr.data-index]="i">
   <span>{{ todo }}</span> |
