@@ -6,21 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-  todos: String[] = ['teste', 'teste2', 'teste 3'];
-
+  todos: String[] = [];
+  novaTodo: String;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    var todosArmazenadas: String[] = JSON.parse(localStorage.getItem('todos'));
+    this.todos = todosArmazenadas ? todosArmazenadas : [];
+  }
 
-  adicionar(todo: String) {
-    this.todos.push(todo);
+  adicionar() {
+    this.todos.push(this.novaTodo);
+    this.novaTodo = '';
+    this.updateLocalStorage();
   }
 
   remover(index: number) {
     this.todos.splice(index, 1);
+
+    this.updateLocalStorage();
   }
 
   updateLocalStorage() {
-    localStorage.setItem('todos', this.todos.toString());
+    localStorage.removeItem('todos');
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 }

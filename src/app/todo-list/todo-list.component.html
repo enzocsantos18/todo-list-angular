@@ -1,7 +1,7 @@
 <form>
   <label for="tarefa">Tarefa</label><br />
-  <input name="tarefa" id="tarefa" type="text" />
-  <button>adicionar</button>
+  <input [(ngModel)]="novaTodo" name="tarefa" id="tarefa" type="text" />
+  <button (click)="adicionar()" [disabled]="!novaTodo">adicionar</button>
 </form>
 
 <hr />
